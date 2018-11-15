@@ -101,17 +101,10 @@
 				8E12F1122195981500E89D47 /* AppDelegate.swift */,
 				8E12F1332199950400E89D47 /* Classes */,
 				8E12F132219994D100E89D47 /* Helpers */,
-				8E12F12421959BD900E89D47 /* welcomeViewController.swift */,
-				8E12F130219994AF00E89D47 /* FinishRegistrationViewController.swift */,
-				8E12F134219B02EF00E89D47 /* SettingsTableViewController.swift */,
-				8E12F139219B223100E89D47 /* UsersTableViewController.swift */,
-				8E12F13B219C669500E89D47 /* ChatsViewController.swift */,
+				8E12F13D219D97CD00E89D47 /* Controllers */,
 				8E12F138219B21F500E89D47 /* CustomCells */,
-				8E12F1162195981500E89D47 /* Main.storyboard */,
-				8E12F1192195981900E89D47 /* Assets.xcassets */,
-				8E12F11B2195981900E89D47 /* LaunchScreen.storyboard */,
-				8E12F11E2195981900E89D47 /* Info.plist */,
-				8E12F1262195A57300E89D47 /* GoogleService-Info.plist */,
+				8E12F13E219D97E400E89D47 /* Views */,
+				8E12F13F219D97F700E89D47 /* Supporting files */,
 			);
 			path = iChat;
 			sourceTree = "<group>";
@@ -140,6 +133,37 @@
 				8E12F136219B0AD100E89D47 /* UserTableViewCell.swift */,
 			);
 			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		8E12F13D219D97CD00E89D47 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8E12F12421959BD900E89D47 /* welcomeViewController.swift */,
+				8E12F130219994AF00E89D47 /* FinishRegistrationViewController.swift */,
+				8E12F134219B02EF00E89D47 /* SettingsTableViewController.swift */,
+				8E12F139219B223100E89D47 /* UsersTableViewController.swift */,
+				8E12F13B219C669500E89D47 /* ChatsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		8E12F13E219D97E400E89D47 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8E12F1162195981500E89D47 /* Main.storyboard */,
+				8E12F1192195981900E89D47 /* Assets.xcassets */,
+				8E12F11B2195981900E89D47 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8E12F13F219D97F700E89D47 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				8E12F11E2195981900E89D47 /* Info.plist */,
+				8E12F1262195A57300E89D47 /* GoogleService-Info.plist */,
+			);
+			path = "Supporting files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
