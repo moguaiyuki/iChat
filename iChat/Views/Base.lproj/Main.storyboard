@@ -388,14 +388,16 @@
             </objects>
             <point key="canvasLocation" x="4777" y="-104"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Profile View Table View Controller-->
         <scene sceneID="0no-63-ReN">
             <objects>
-                <tableViewController id="7WD-zS-RwQ" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hDg-Oa-W5C">
+                <tableViewController storyboardIdentifier="profileView" id="7WD-zS-RwQ" customClass="ProfileViewTableViewController" customModule="iChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hDg-Oa-W5C">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="separatorColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="sectionIndexBackgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
                             <tableViewSection headerTitle="Section-1" id="wVV-67-R9y">
                                 <cells>
@@ -414,7 +416,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ea6-NQ-hFS">
-                                                    <rect key="frame" x="104" y="11" width="255" height="24"/>
+                                                    <rect key="frame" x="104" y="23" width="255" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -432,7 +434,7 @@
                                                 <constraint firstItem="Goz-XE-ewe" firstAttribute="leading" secondItem="uIt-jT-vHw" secondAttribute="leading" constant="16" id="BB8-cJ-buV"/>
                                                 <constraint firstItem="ea6-NQ-hFS" firstAttribute="leading" secondItem="Goz-XE-ewe" secondAttribute="trailing" constant="8" id="WdR-OJ-AcF"/>
                                                 <constraint firstItem="Goz-XE-ewe" firstAttribute="centerY" secondItem="uIt-jT-vHw" secondAttribute="centerY" id="dhB-Un-9NG"/>
-                                                <constraint firstItem="ea6-NQ-hFS" firstAttribute="top" secondItem="uIt-jT-vHw" secondAttribute="topMargin" id="gMc-2O-5cE"/>
+                                                <constraint firstItem="ea6-NQ-hFS" firstAttribute="top" secondItem="uIt-jT-vHw" secondAttribute="topMargin" constant="12" id="gMc-2O-5cE"/>
                                                 <constraint firstItem="waF-NX-60n" firstAttribute="trailing" secondItem="uIt-jT-vHw" secondAttribute="trailingMargin" id="lJh-1x-eDF"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="waF-NX-60n" secondAttribute="bottom" constant="12" id="vq6-RA-ums"/>
                                             </constraints>
@@ -461,10 +463,16 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6rM-Cj-fTq">
                                                     <rect key="frame" x="16" y="17.5" width="149" height="30"/>
                                                     <state key="normal" image="call"/>
+                                                    <connections>
+                                                        <action selector="callButtonPressed:" destination="7WD-zS-RwQ" eventType="touchUpInside" id="ZYW-XS-cGb"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PMm-kP-7UV">
                                                     <rect key="frame" x="210" y="17.5" width="149" height="30"/>
                                                     <state key="normal" image="message"/>
+                                                    <connections>
+                                                        <action selector="chatButtonPressed:" destination="7WD-zS-RwQ" eventType="touchUpInside" id="qGh-ke-CCV"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -496,6 +504,9 @@
                                                     <state key="normal" title="Block User">
                                                         <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="BlockUserButtonPressed:" destination="7WD-zS-RwQ" eventType="touchUpInside" id="RKs-4V-oue"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -513,6 +524,14 @@
                             <outlet property="delegate" destination="7WD-zS-RwQ" id="Ylf-gq-HmJ"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="avatarImageView" destination="Goz-XE-ewe" id="yei-HZ-B7H"/>
+                        <outlet property="blockButton" destination="tZf-Be-XOB" id="nF5-hL-urG"/>
+                        <outlet property="callButton" destination="6rM-Cj-fTq" id="hDZ-sF-B5s"/>
+                        <outlet property="fullNameLabel" destination="ea6-NQ-hFS" id="wZb-GJ-n3E"/>
+                        <outlet property="messageButton" destination="PMm-kP-7UV" id="izK-E7-tM9"/>
+                        <outlet property="phoneNumberLabel" destination="waF-NX-60n" id="4GU-sD-Zwf"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E0F-vS-lBD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

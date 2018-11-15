@@ -10,13 +10,13 @@ import UIKit
 import Firebase
 import ProgressHUD
 
-class UsersTableViewController: UITableViewController, UISearchResultsUpdating {
+class UsersTableViewController: UITableViewController, UISearchResultsUpdating, UserTableViewCellDelegate {
 
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var filterSegmentedControl: UISegmentedControl!
     
     var allUsers: [FUser] = []
-    var fileredUsers: [FUser] = []
+    var filteredUsers: [FUser] = []
     var allUsersGroupped = NSDictionary() as! [String: [FUser]]
     var sectionTitleList: [String] = []
     
@@ -52,7 +52,7 @@ class UsersTableViewController: UITableViewController, UISearchResultsUpdating {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if searchController.isActive && searchController.searchBar.text != "" {
-            return fileredUsers.count
+            return filteredUsers.count
         } else {
             //find section title
             let sectionTitle = self.sectionTitleList[section]
@@ -70,15 +70,15 @@ class UsersTableViewController: UITableViewController, UISearchResultsUpdating {
         var user: FUser
         
         if searchController.isActive && searchController.searchBar.text != "" {
-            user = fileredUsers[indexPath.row]
+            user = filteredUsers[indexPath.row]
         } else {
             let sectionTitle = sectionTitleList[indexPath.section]
             let users = allUsersGroupped[sectionTitle]
             user = users![indexPath.row]
         }
         
-        
         cell.generateCell(with: user, indexPath: indexPath)
+        cell.delegate = self
 
         return cell
     }
@@ -169,7 +169,7 @@ class UsersTableViewController: UITableViewController, UISearchResultsUpdating {
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
         
-        fileredUsers = allUsers.filter({ (user) -> Bool in
+        filteredUsers = allUsers.filter({ (user) -> Bool in
             return user.firstname.lowercased().contains(searchText.lowercased())
         })
         
@@ -196,6 +196,26 @@ class UsersTableViewController: UITableViewController, UISearchResultsUpdating {
             }
             allUsersGroupped[sectionTitle]?.append(currentUser)
         }
+    }
+    
+    // MARK: - UserTableViewCellDelegate
+    
+    func didTapAvatarImage(indexPath: IndexPath) {
+        let profileViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "profileView") as! ProfileViewTableViewController
+        
+        var user: FUser
+        
+        if searchController.isActive && searchController.searchBar.text != "" {
+            user = filteredUsers[indexPath.row]
+        } else {
+            let sectionTitle = sectionTitleList[indexPath.section]
+            let users = allUsersGroupped[sectionTitle]
+            user = users![indexPath.row]
+        }
+        
+        profileViewController.user = user
+        
+        self.navigationController?.pushViewController(profileViewController, animated: true)
     }
     
 }

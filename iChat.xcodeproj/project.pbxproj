@@ -23,6 +23,7 @@
 		8E12F137219B0AD100E89D47 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E12F136219B0AD100E89D47 /* UserTableViewCell.swift */; };
 		8E12F13A219B223100E89D47 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E12F139219B223100E89D47 /* UsersTableViewController.swift */; };
 		8E12F13C219C669500E89D47 /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E12F13B219C669500E89D47 /* ChatsViewController.swift */; };
+		8E12F141219D988900E89D47 /* ProfileViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E12F140219D988900E89D47 /* ProfileViewTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		8E12F136219B0AD100E89D47 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		8E12F139219B223100E89D47 /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		8E12F13B219C669500E89D47 /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
+		8E12F140219D988900E89D47 /* ProfileViewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewTableViewController.swift; sourceTree = "<group>"; };
 		B31A77C46FBAA2BF8B6EE88A /* Pods-iChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iChat/Pods-iChat.debug.xcconfig"; sourceTree = "<group>"; };
 		F628D1A461595D2C5D341E48 /* Pods-iChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-iChat/Pods-iChat.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,13 +100,16 @@
 		8E12F1112195981500E89D47 /* iChat */ = {
 			isa = PBXGroup;
 			children = (
+				8E12F144219DDD8E00E89D47 /* secondaryViews */,
+				8E12F143219DDD6D00E89D47 /* mainViews */,
+				8E12F142219DDD3900E89D47 /* welcomeViews */,
 				8E12F1122195981500E89D47 /* AppDelegate.swift */,
+				8E12F11E2195981900E89D47 /* Info.plist */,
+				8E12F1262195A57300E89D47 /* GoogleService-Info.plist */,
 				8E12F1332199950400E89D47 /* Classes */,
 				8E12F132219994D100E89D47 /* Helpers */,
-				8E12F13D219D97CD00E89D47 /* Controllers */,
 				8E12F138219B21F500E89D47 /* CustomCells */,
 				8E12F13E219D97E400E89D47 /* Views */,
-				8E12F13F219D97F700E89D47 /* Supporting files */,
 			);
 			path = iChat;
 			sourceTree = "<group>";
@@ -135,18 +140,6 @@
 			path = CustomCells;
 			sourceTree = "<group>";
 		};
-		8E12F13D219D97CD00E89D47 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				8E12F12421959BD900E89D47 /* welcomeViewController.swift */,
-				8E12F130219994AF00E89D47 /* FinishRegistrationViewController.swift */,
-				8E12F134219B02EF00E89D47 /* SettingsTableViewController.swift */,
-				8E12F139219B223100E89D47 /* UsersTableViewController.swift */,
-				8E12F13B219C669500E89D47 /* ChatsViewController.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
 		8E12F13E219D97E400E89D47 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,13 +150,31 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		8E12F13F219D97F700E89D47 /* Supporting files */ = {
+		8E12F142219DDD3900E89D47 /* welcomeViews */ = {
 			isa = PBXGroup;
 			children = (
-				8E12F11E2195981900E89D47 /* Info.plist */,
-				8E12F1262195A57300E89D47 /* GoogleService-Info.plist */,
+				8E12F12421959BD900E89D47 /* welcomeViewController.swift */,
+				8E12F130219994AF00E89D47 /* FinishRegistrationViewController.swift */,
 			);
-			path = "Supporting files";
+			path = welcomeViews;
+			sourceTree = "<group>";
+		};
+		8E12F143219DDD6D00E89D47 /* mainViews */ = {
+			isa = PBXGroup;
+			children = (
+				8E12F134219B02EF00E89D47 /* SettingsTableViewController.swift */,
+				8E12F13B219C669500E89D47 /* ChatsViewController.swift */,
+			);
+			path = mainViews;
+			sourceTree = "<group>";
+		};
+		8E12F144219DDD8E00E89D47 /* secondaryViews */ = {
+			isa = PBXGroup;
+			children = (
+				8E12F139219B223100E89D47 /* UsersTableViewController.swift */,
+				8E12F140219D988900E89D47 /* ProfileViewTableViewController.swift */,
+			);
+			path = secondaryViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,6 +340,7 @@
 			files = (
 				8E12F1292195A75C00E89D47 /* FUser.swift in Sources */,
 				8E12F137219B0AD100E89D47 /* UserTableViewCell.swift in Sources */,
+				8E12F141219D988900E89D47 /* ProfileViewTableViewController.swift in Sources */,
 				8E12F1132195981500E89D47 /* AppDelegate.swift in Sources */,
 				8E12F12521959BD900E89D47 /* welcomeViewController.swift in Sources */,
 				8E12F12D2195AD0700E89D47 /* FCollectionReference.swift in Sources */,
