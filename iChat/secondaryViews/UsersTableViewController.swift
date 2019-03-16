@@ -104,6 +104,24 @@ class UsersTableViewController: UITableViewController, UISearchResultsUpdating, 
         return index
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        var user: FUser
+        
+        if searchController.isActive && searchController.searchBar.text != "" {
+            user = filteredUsers[indexPath.row]
+        } else {
+            let sectionTitle = sectionTitleList[indexPath.section]
+            let users = allUsersGroupped[sectionTitle]
+            user = users![indexPath.row]
+        }
+        
+        startPrivateChat(user1: FUser.currentUser()!, user2: user)
+        
+    }
+    
     func loadUsers(filter: String) {
         ProgressHUD.show()
         var query: Query!
