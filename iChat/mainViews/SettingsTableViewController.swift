@@ -30,11 +30,8 @@ class SettingsTableViewController: UITableViewController {
     //MARK: IBActions
     
     @IBAction func logOutButtonPressed(_ sender: UIButton) {
-        print("Hello")
         FUser.logOutCurrentUser { (success) in
-            print("loged out")
             if success {
-                print("logout success")
                 self.showLoginView()
             }
         }
